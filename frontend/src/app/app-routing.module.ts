@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './components/template/login/login.component';
-import { CadastroComponent } from './components/template/cadastro/cadastro.component';
-import { HomeComponent } from './components/template/home/home.component';
+import { HomeComponent } from './views/home/home.component';
+import { ProductCrudComponent } from './views/product-crud/product-crud.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'products', component: ProductCrudComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

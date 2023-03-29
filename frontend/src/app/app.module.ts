@@ -15,8 +15,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { ProductCrudComponent } from './views/product-crud/product-crud.component';
-import { RedDirective } from './directives/red.directive';
 import { ProductCreateComponent } from './components/product/product-create/product-create.component';
+import { RedDirective } from './directives/red.directive';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ProductCreateComponent } from './components/product/product-create/prod
     MatSidenavModule,
     MatListModule,
     MatCardModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

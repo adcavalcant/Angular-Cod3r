@@ -1,3 +1,9 @@
-<p [id]="propLegal">product-create works!</p>
+<p>product-create works!</p>
 
-<button (click)="fazerAlgo()">Fazer algo</button>
+<button class="button-save" mat-raised-button style="background-color: #3498db; color: white;"
+  (click)="createProduct()">
+  Salvar
+</button>
+<button mat-raised-button (click)="cancel()">
+  Cancelar
+</button>

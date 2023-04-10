@@ -19,6 +19,16 @@
       "id": 4,
       "name": "iPhone 14",
       "price": 7500
+    },
+    {
+      "name": "",
+      "price": 0,
+      "id": 5
+    },
+    {
+      "name": "Geladeira",
+      "price": "1299.50",
+      "id": 6
     }
   ]
 }

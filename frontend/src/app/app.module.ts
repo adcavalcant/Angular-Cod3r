@@ -51,7 +51,7 @@ registerLocaleData(localePt);
     ProductCreateComponent,
     ProductReadComponent,
     ProductUpdateComponent,
-    ProductDeleteComponent,
+    ProductDeleteComponent
   ],
   imports: [
     BrowserModule,

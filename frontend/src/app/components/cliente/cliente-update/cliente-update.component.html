@@ -1,0 +1,40 @@
+<mat-card>
+  <mat-card-title>Atualizar Cliente</mat-card-title>
+  <form>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Nome"
+        [(ngModel)]="cliente.name"
+        name="name"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Sobrenome"
+        [(ngModel)]="cliente.surname"
+        name="surname"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Salário (R$)"
+        [(ngModel)]="cliente.salario"
+        name="salario"
+      />
+    </mat-form-field>
+  </form>
+  <div class="buttons">
+    <button
+      class="button-save"
+      mat-raised-button
+      style="background-color: #3498db; color: white"
+      (click)="updateClient()"
+    >
+      Salvar
+    </button>
+    <button mat-raised-button (click)="cancel()">Cancelar</button>
+  </div>
+</mat-card>

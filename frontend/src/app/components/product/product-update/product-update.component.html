@@ -1,0 +1,32 @@
+<mat-card>
+  <mat-card-title>Editar Produto</mat-card-title>
+  <form>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Nome"
+        [(ngModel)]="product.name"
+        name="name"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Preço (R$)"
+        [(ngModel)]="product.price"
+        name="price"
+      />
+    </mat-form-field>
+  </form>
+  <div class="buttons">
+    <button
+      class="button-save"
+      mat-raised-button
+      style="background-color: #3498db; color: white"
+      (click)="updateProduct()"
+    >
+      Salvar
+    </button>
+    <button mat-raised-button (click)="cancel()">Cancelar</button>
+  </div>
+</mat-card>

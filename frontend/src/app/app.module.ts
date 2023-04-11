@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HeaderComponent } from './components/template/header/header.component';
 import { FooterComponent } from './components/template/footer/footer.component';
@@ -47,6 +47,11 @@ import { ClienteUpdateComponent } from './components/cliente/cliente-update/clie
 import { ClienteDeleteComponent } from './components/cliente/cliente-delete/cliente-delete.component';
 
 import { PensamentoCrudComponent } from './views/pensamento-crud/pensamento-crud.component';
+import { PensamentoCreateComponent } from './components/pensamento/pensamento-create/pensamento-create.component';
+import { PensamentoReadComponent } from './components/pensamento/pensamento-read/pensamento-read.component';
+import { PensamentoUpdateComponent } from './components/pensamento/pensamento-update/pensamento-update.component';
+import { PensamentoDeleteComponent } from './components/pensamento/pensamento-delete/pensamento-delete.component';
+import { PensamentoCardComponent } from './components/pensamento/pensamento-card/pensamento-card.component';
 
 registerLocaleData(localePt);
 
@@ -64,12 +69,17 @@ registerLocaleData(localePt);
     ProductReadComponent,
     ProductUpdateComponent,
     ProductDeleteComponent,
-    PensamentoCrudComponent,
     ClienteCrudComponent,
     ClienteCreateComponent,
     ClienteReadComponent,
     ClienteUpdateComponent,
     ClienteDeleteComponent,
+    PensamentoCrudComponent,
+    PensamentoCreateComponent,
+    PensamentoReadComponent,
+    PensamentoUpdateComponent,
+    PensamentoDeleteComponent,
+    PensamentoCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -89,6 +99,7 @@ registerLocaleData(localePt);
     MatPaginatorModule,
     MatSortModule,
     MatDialogModule,
+    ReactiveFormsModule,
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'pt-BR' }],
   bootstrap: [AppComponent],

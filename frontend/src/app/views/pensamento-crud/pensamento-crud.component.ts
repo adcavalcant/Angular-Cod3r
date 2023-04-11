@@ -9,9 +9,13 @@ import { HeaderService } from 'src/app/components/template/header/header.service
 export class PensamentoCrudComponent {
   constructor(private headerService: HeaderService) {
     headerService.headerData = {
-      title: 'Cadastro de Pensamentos',
+      title: 'Pensamentos',
       icon: 'psychology_alt',
       routeUrl: '/pensamentos',
     };
+  }
+
+  navigateToPensamentoCreate() {
+    
   }
 }

@@ -1,0 +1,103 @@
+<section class="container criar-pensamentos ff-inter">
+  <header class="header">
+    <h2>Atualização de pensamento</h2>
+  </header>
+  <form>
+    <label for="conteudo">Pensamento</label>
+    <input
+      type="textarea"
+      class="input"
+      id="conteudo"
+      name="conteudo"
+      [(ngModel)]="pensamento.conteudo"
+      placeholder="Digite o pensamento"
+    />
+    <label for="autoria">Autoria ou fonte</label>
+    <input
+      type="text"
+      class="input"
+      id="autoria"
+      name="autoria"
+      [(ngModel)]="pensamento.autoria"
+      placeholder="Digite a autoria ou fonte"
+    />
+    <label for="modelo">Selecione o modelo do card</label>
+    <div class="container-radio">
+      <div class="radio-modelo">
+        <label for="modelo1">
+          <input
+            type="radio"
+            id="modelo1"
+            value="modelo1"
+            name="modelo1"
+            [(ngModel)]="pensamento.modelo"
+          />
+          <div class="custom-radio">
+            <span></span>
+          </div>
+          <span>Modelo 1</span>
+        </label>
+        Prévia:
+        <div class="modelo modelo1 ff-roboto-mono">
+          <img src="assets/img/modelo1.png" alt="Aspas azuis" />
+          <p class="conteudo">{{ pensamento.conteudo }}</p>
+          <p class="autoria">
+            <b>{{ pensamento.autoria }}</b>
+          </p>
+        </div>
+      </div>
+      <div class="radio-modelo">
+        <label for="modelo2">
+          <input
+            type="radio"
+            id="modelo2"
+            value="modelo2"
+            name="modelo2"
+            [(ngModel)]="pensamento.modelo"
+          />
+          <div class="custom-radio">
+            <span></span>
+          </div>
+          <span>Modelo 2</span>
+        </label>
+        Prévia:
+        <div class="modelo modelo2 ff-roboto-mono">
+          <img src="assets/img/modelo2.png" alt="Aspas azul-claras" />
+          <p class="conteudo">{{ pensamento.conteudo }}</p>
+          <p class="autoria">
+            <b>{{ pensamento.autoria }}</b>
+          </p>
+        </div>
+      </div>
+      <div class="radio-modelo">
+        <label for="modelo3">
+          <input
+            type="radio"
+            id="modelo3"
+            value="modelo3"
+            name="modelo3"
+            [(ngModel)]="pensamento.modelo"
+          />
+          <div class="custom-radio">
+            <span></span>
+          </div>
+          <span>Modelo 3</span>
+        </label>
+        Prévia:
+        <div class="modelo modelo3 ff-roboto-mono">
+          <img src="assets/img/modelo3.png" alt="Aspas verde-claras" />
+          <p class="conteudo">{{ pensamento.conteudo }}</p>
+          <p class="autoria">
+            <b>{{ pensamento.autoria }}</b>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="acoes">
+      <button (click)="atualizarPensamento()" class="botao">Atualizar</button>
+      <button (click)="cancelar()" class="botao botao-cancelar">
+        Cancelar
+      </button>
+    </div>
+  </form>
+</section>

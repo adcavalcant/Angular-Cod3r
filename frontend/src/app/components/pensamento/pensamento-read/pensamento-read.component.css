@@ -1,0 +1,42 @@
+.mural {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin: 1rem 0 2rem;
+}
+
+.title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 100;
+}
+
+.d-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.sem-pensamentos {
+  text-align: center;
+  padding: 2rem 0 5rem;
+}
+
+.botao-log-out {
+  background: rgb(21, 69, 128);
+  color: #ffffff;
+  max-width: 110px;
+  width: 60px;
+  padding: 0.5rem;
+  font-size: 15px;
+  /* margin: 0 auto; */
+  border: 2px solid black;
+  border-radius: 10px;
+  transition: 0.5s ease;
+}
+
+.botao-log-out:hover {
+  cursor: pointer;
+  background: rgb(21, 69, 128, 0.8);
+}

@@ -23,3 +23,50 @@ body {
   background-color: #e35e6b;
   color: #fff;
 }
+
+.botao {
+  background: #154580;
+  color: #ffffff;
+  max-width: 270px;
+  width: 250px;
+  padding: 1rem;
+  margin: 0 auto;
+  border: 2px solid #154580;
+  border-radius: 10px;
+  transition: 0.5s ease;
+}
+
+.botao:hover {
+  border: 2px solid #84eec1;
+  color: #84eec1;
+  cursor: pointer;
+}
+
+.botao-deletar {
+  background: #f44336;
+  color: #ffffff;
+  max-width: 270px;
+  width: 250px;
+  padding: 1rem;
+  margin: 0 auto;
+  border: 2px solid #000;
+  border-radius: 10px;
+  transition: 0.5s ease;
+}
+
+.botao-deletar:hover {
+  border: 2px solid #84eeee;
+  color: #84eeee;
+  cursor: pointer;
+}
+
+.botao-cancelar {
+  background: #6bd1ff;
+  color: #ffffff;
+  max-width: 270px;
+  width: 250px;
+  padding: 1rem;
+  margin: 0 auto;
+  border-radius: 10px;
+  transition: 0.5s ease;
+}

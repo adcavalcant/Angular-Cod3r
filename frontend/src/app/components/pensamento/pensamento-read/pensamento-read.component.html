@@ -1,0 +1,15 @@
+<section class="container">
+  <header class="header d-flex">
+    <h1 class="title"><b>Mural de Pensamentos</b></h1>
+  </header>
+  <div class="mural" *ngIf="listaPensamentos.length > 0; else semPensamentos">
+    <div *ngFor="let pensamento of listaPensamentos">
+      <app-pensamento-card [pensamento]="pensamento"></app-pensamento-card>
+    </div>
+  </div>
+</section>
+<ng-template #semPensamentos>
+  <div class="ff-inter sem-pensamentos">
+    <p>Ainda não há pensamentos cadastrados</p>
+  </div>
+</ng-template>

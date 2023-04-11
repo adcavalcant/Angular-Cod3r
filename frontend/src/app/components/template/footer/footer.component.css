@@ -1,7 +1,9 @@
 .footer {
   position: fixed;
+  z-index: 9999;
   bottom: 0; /* usa como referência a parte de baixo da página */
   display: flex;
+  height: 28px;
   justify-content: flex-end;
 }
 

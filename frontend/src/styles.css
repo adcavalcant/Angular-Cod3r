@@ -70,3 +70,7 @@ body {
   border-radius: 10px;
   transition: 0.5s ease;
 }
+
+.mt64px {
+  margin-top: 64px;
+}

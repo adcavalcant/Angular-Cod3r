@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Cliente } from '../cliente.model';
+import { Cliente } from '../../../models/cliente.model';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ClienteService } from '../cliente.service';
+import { ClienteService } from '../../../services/cliente.service';
 
 @Component({
   selector: 'app-cliente-delete',

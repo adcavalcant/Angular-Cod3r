@@ -1,15 +1,15 @@
-import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { HttpClient } from '@angular/common/http';
-import { Product } from './product.model';
-import { Observable, EMPTY } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
+import { Observable, EMPTY } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { Cliente } from '../models/cliente.model';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ProductService {
-  baseUrl = 'http://localhost:3001/products';
+export class ClienteService {
+  baseUrl = 'http://localhost:3001/clientes';
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) {}
 
@@ -22,39 +22,39 @@ export class ProductService {
     });
   }
 
-  create(product: Product): Observable<Product> {
-    return this.http.post<Product>(this.baseUrl, product).pipe(
+  create(cliente: Cliente): Observable<Cliente> {
+    return this.http.post<Cliente>(this.baseUrl, cliente).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );
   }
 
-  read(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.baseUrl).pipe(
+  read(): Observable<Cliente[]> {
+    return this.http.get<Cliente[]>(this.baseUrl).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );
   }
 
-  readById(id: number): Observable<Product> {
+  readById(id: number): Observable<Cliente> {
     const url = `${this.baseUrl}/${id}`;
-    return this.http.get<Product>(url).pipe(
+    return this.http.get<Cliente>(url).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );
   }
 
-  update(product: Product): Observable<Product> {
-    const url = `${this.baseUrl}/${product.id}`;
-    return this.http.put<Product>(url, product).pipe(
+  update(cliente: Cliente): Observable<Cliente> {
+    const url = `${this.baseUrl}/${cliente.id}`;
+    return this.http.put<Cliente>(url, cliente).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );
   }
 
-  delete(id: number): Observable<Product> {
+  delete(id: number): Observable<Cliente> {
     const url = `${this.baseUrl}/${id}`;
-    return this.http.delete<Product>(url).pipe(
+    return this.http.delete<Cliente>(url).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );

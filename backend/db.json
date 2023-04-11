@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "Caneta Bic Preta",
-      "price": 5.89
+      "price": "7.90"
     },
     {
       "id": 2,
@@ -19,11 +19,22 @@
       "id": 4,
       "name": "iPhone 14",
       "price": 7500
-    },
+    }
+  ],
+  "clientes": [
     {
-      "name": "Geladeira",
-      "price": "1299.50",
-      "id": 6
+      "name": "Aderbal",
+      "surname": "Cavalcante",
+      "salario": "4120",
+      "id": 1
+    }
+  ],
+  "pensamentos": [
+    {
+      "id": 1,
+      "conteudo": "Teste de Pensamento",
+      "autoria": "3S Cavalcante",
+      "modelo": "modelo1"
     }
   ]
 }

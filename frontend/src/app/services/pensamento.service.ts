@@ -8,7 +8,7 @@ import { Pensamento } from '../models/pensamento.model';
   providedIn: 'root',
 })
 export class PensamentoService {
-  baseUrl = 'http://localhost:3001/pensamentos';
+  baseUrl = 'http://localhost:3000/pensamentos';
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) {}
 
@@ -35,14 +35,14 @@ export class PensamentoService {
   }
 
   atualizar(pensamento: Pensamento): Observable<Pensamento> {
-    const url = `${this.baseUrl}/${pensamento.id}`;
+    const url = `${this.baseUrl}/${pensamento._id}`;
     return this.http.put<Pensamento>(url, pensamento).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );
   }
 
-  excluir(id: number): Observable<Pensamento> {
+  excluir(id: string): Observable<Pensamento> {
     const url = `${this.baseUrl}/${id}`;
     return this.http.delete<Pensamento>(url).pipe(
       map((obj) => obj),

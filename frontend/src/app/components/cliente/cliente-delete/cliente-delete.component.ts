@@ -18,13 +18,13 @@ export class ClienteDeleteComponent {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.clienteService.readById(+id).subscribe((cliente) => {
+    this.clienteService.readById(id).subscribe((cliente) => {
       this.cliente = cliente;
     });
   }
 
   deleteClient(): void {
-    this.clienteService.delete(this.cliente.id).subscribe(() => {
+    this.clienteService.delete(this.cliente._id + '').subscribe(() => {
       this.clienteService.showMessage(
         `Produto '${this.cliente.name}' excluído com sucesso!`
       );

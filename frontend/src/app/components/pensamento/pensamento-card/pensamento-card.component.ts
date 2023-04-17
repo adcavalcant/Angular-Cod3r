@@ -10,7 +10,7 @@ import { Pensamento } from 'src/app/models/pensamento.model';
 export class PensamentoCardComponent {
   @Input() pensamento: Pensamento = {
     // o Decorator @Input diz pro angular que agora esse componente irá receber informações do componente pai 'listarPensamento'
-    id: 1,
+    _id: '3dmdaism3i2n3',
     conteudo: '',
     autoria: '3S Cavalcante',
     modelo: 'modelo3',

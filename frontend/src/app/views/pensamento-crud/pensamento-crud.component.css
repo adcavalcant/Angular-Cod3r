@@ -3,3 +3,8 @@ button {
   margin-top: auto;
   position: fixed;
 }
+
+/* Regra para dispositivos móveis */
+@media (max-width: 767px) {
+
+}

@@ -26,7 +26,7 @@ export class PensamentoDeleteComponent {
   }
 
   excluirPensamento(): void {
-    this.service.excluir(this.pensamento.id).subscribe(() => {
+    this.service.excluir(this.pensamento._id).subscribe(() => {
       this.pensamentoService.showMessage('Pensamento Excluído!');
       this.router.navigate(['/pensamentos']);
     });

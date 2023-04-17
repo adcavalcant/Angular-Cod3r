@@ -13,3 +13,7 @@ table {
 .delete > i {
   color: #e35e6b;
 }
+
+.sem-produtos {
+  padding: 2rem 0 5rem;
+}

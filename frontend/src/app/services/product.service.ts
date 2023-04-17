@@ -9,7 +9,7 @@ import { map, catchError } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class ProductService {
-  baseUrl = 'http://localhost:3001/products';
+  baseUrl = 'http://localhost:3000/products';
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) {}
 
@@ -36,7 +36,7 @@ export class ProductService {
     );
   }
 
-  readById(id: number): Observable<Product> {
+  readById(id: string): Observable<Product> {
     const url = `${this.baseUrl}/${id}`;
     return this.http.get<Product>(url).pipe(
       map((obj) => obj),
@@ -45,14 +45,14 @@ export class ProductService {
   }
 
   update(product: Product): Observable<Product> {
-    const url = `${this.baseUrl}/${product.id}`;
+    const url = `${this.baseUrl}/${product._id}`;
     return this.http.put<Product>(url, product).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );
   }
 
-  delete(id: number): Observable<Product> {
+  delete(id: string): Observable<Product> {
     const url = `${this.baseUrl}/${id}`;
     return this.http.delete<Product>(url).pipe(
       map((obj) => obj),

@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class ClienteService {
-  baseUrl = 'http://localhost:3001/clientes';
+  baseUrl = 'http://localhost:3000/clientes';
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) {}
 
@@ -36,7 +36,7 @@ export class ClienteService {
     );
   }
 
-  readById(id: number): Observable<Cliente> {
+  readById(id: string): Observable<Cliente> {
     const url = `${this.baseUrl}/${id}`;
     return this.http.get<Cliente>(url).pipe(
       map((obj) => obj),
@@ -45,14 +45,14 @@ export class ClienteService {
   }
 
   update(cliente: Cliente): Observable<Cliente> {
-    const url = `${this.baseUrl}/${cliente.id}`;
+    const url = `${this.baseUrl}/${cliente._id}`;
     return this.http.put<Cliente>(url, cliente).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );
   }
 
-  delete(id: number): Observable<Cliente> {
+  delete(id: string): Observable<Cliente> {
     const url = `${this.baseUrl}/${id}`;
     return this.http.delete<Cliente>(url).pipe(
       map((obj) => obj),

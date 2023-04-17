@@ -19,7 +19,7 @@ export class ClienteUpdateComponent {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.clienteService.readById(+id).subscribe((cliente) => {
+    this.clienteService.readById(id).subscribe((cliente) => {
       this.cliente = cliente;
     });
   }

@@ -12,12 +12,6 @@
   font-weight: 100;
 }
 
-.d-flex {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
 .sem-pensamentos {
   text-align: center;
   padding: 2rem 0 5rem;

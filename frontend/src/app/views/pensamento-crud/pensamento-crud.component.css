@@ -1,10 +1,8 @@
 button {
-  margin-bottom: 30px;
-  margin-top: auto;
+  border-radius: 30px;
   position: fixed;
 }
 
-/* Regra para dispositivos móveis */
-@media (max-width: 767px) {
-
+.mural {
+  margin-top: 150px;
 }

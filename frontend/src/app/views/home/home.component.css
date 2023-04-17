@@ -12,8 +12,3 @@
 .home .subtitle {
   font-size: 1.1rem;
 }
-
-/* Regra para dispositivos móveis */
-@media (max-width: 767px) {
-
-}

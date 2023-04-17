@@ -15,7 +15,6 @@ export class ClienteReadComponent {
   ngOnInit(): void {
     this.clienteService.read().subscribe((clientes) => {
       this.clientes = clientes;
-      console.log(clientes);
     });
   }
 }

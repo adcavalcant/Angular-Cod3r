@@ -21,7 +21,7 @@ class ClientesController {
         if (!cliente) {
           return res.status(404).json({ message: `Cliente ${id} não encontrado.` });
         }
-        res.status(200).json(autor);
+        res.status(200).json(cliente);
       })
       .catch((err) => {
         console.error(err);

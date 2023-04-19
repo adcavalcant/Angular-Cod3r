@@ -12,7 +12,6 @@ export class PensamentoCreateComponent implements OnInit {
   formulario!: FormGroup;
 
   constructor(
-    private service: PensamentoService,
     private router: Router,
     private formBuilder: FormBuilder,
     private pensamentoService: PensamentoService
@@ -27,7 +26,7 @@ export class PensamentoCreateComponent implements OnInit {
   }
 
   criarPensamento() {
-    this.service.criar(this.formulario.value).subscribe(() => {
+    this.pensamentoService.criar(this.formulario.value).subscribe(() => {
       this.pensamentoService.showMessage('Pensamento Criado!');
       this.router.navigate(['/pensamentos']);
     });

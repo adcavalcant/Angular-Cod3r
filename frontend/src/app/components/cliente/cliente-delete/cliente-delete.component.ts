@@ -9,7 +9,12 @@ import { ClienteService } from '../../../services/cliente.service';
   styleUrls: ['./cliente-delete.component.css'],
 })
 export class ClienteDeleteComponent {
-  cliente: Cliente;
+  cliente: Cliente = {
+    name: '',
+    surname: '',
+    salario: 0,
+  };
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,

@@ -9,7 +9,10 @@ import { Product } from '../../../models/product.model';
   styleUrls: ['./product-update.component.css'],
 })
 export class ProductUpdateComponent implements OnInit {
-  product: Product;
+  product: Product = {
+    name: '',
+    price: 0,
+  };
 
   constructor(
     private productService: ProductService,

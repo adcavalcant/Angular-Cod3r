@@ -5,7 +5,7 @@
       <input
         matInput
         placeholder="Nome"
-        [(ngModel)]="cliente.name"
+        [value]="cliente.name"
         name="name"
       />
     </mat-form-field>
@@ -30,10 +30,10 @@
     <button
       class="button-save"
       mat-raised-button
-      style="background-color: #3498db; color: white"
+      color="primary"
       (click)="updateClient()"
     >
-      Salvar
+      Atualizar
     </button>
     <button mat-raised-button (click)="cancel()">Cancelar</button>
   </div>

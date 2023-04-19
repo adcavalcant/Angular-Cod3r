@@ -9,7 +9,11 @@ import { ProductService } from '../../../services/product.service';
   styleUrls: ['./product-delete.component.css'],
 })
 export class ProductDeleteComponent implements OnInit {
-  product: Product;
+  product: Product = {
+    name: '',
+    price: 0,
+  };
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,

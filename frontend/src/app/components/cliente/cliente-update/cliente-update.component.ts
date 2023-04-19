@@ -9,7 +9,11 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./cliente-update.component.css'],
 })
 export class ClienteUpdateComponent {
-  cliente: Cliente;
+  cliente: Cliente = {
+    name: '',
+    surname: '',
+    salario: 0,
+  };
 
   constructor(
     private clienteService: ClienteService,

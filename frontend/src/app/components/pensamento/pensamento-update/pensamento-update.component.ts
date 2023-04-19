@@ -10,10 +10,13 @@ import { PensamentoService } from 'src/app/services/pensamento.service';
   styleUrls: ['./pensamento-update.component.css'],
 })
 export class PensamentoUpdateComponent {
-  pensamento: Pensamento;
+  pensamento: Pensamento = {
+    autoria: '',
+    conteudo: '',
+    modelo: '',
+  };
 
   constructor(
-    private service: PensamentoService,
     private router: Router,
     private route: ActivatedRoute,
     private pensamentoService: PensamentoService
@@ -27,7 +30,7 @@ export class PensamentoUpdateComponent {
   }
 
   atualizarPensamento() {
-    this.service.atualizar(this.pensamento).subscribe(() => {
+    this.pensamentoService.atualizar(this.pensamento).subscribe(() => {
       this.pensamentoService.showMessage('Pensamento Atualizado!');
       this.router.navigate(['/pensamentos']);
     });

@@ -9,10 +9,13 @@ import { PensamentoService } from 'src/app/services/pensamento.service';
   styleUrls: ['./pensamento-delete.component.css'],
 })
 export class PensamentoDeleteComponent {
-  pensamento: Pensamento;
+  pensamento: Pensamento = {
+    autoria: '',
+    conteudo: '',
+    modelo: '',
+  };
 
   constructor(
-    private service: PensamentoService,
     private router: Router,
     private route: ActivatedRoute,
     private pensamentoService: PensamentoService
@@ -26,7 +29,7 @@ export class PensamentoDeleteComponent {
   }
 
   excluirPensamento(): void {
-    this.service.excluir(this.pensamento._id).subscribe(() => {
+    this.pensamentoService.excluir(this.pensamento._id).subscribe(() => {
       this.pensamentoService.showMessage('Pensamento Excluído!');
       this.router.navigate(['/pensamentos']);
     });

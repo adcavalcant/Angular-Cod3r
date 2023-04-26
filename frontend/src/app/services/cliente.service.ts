@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class ClienteService {
-  baseUrl = 'http://localhost:3000/clientes';
+  baseUrl = 'http://localhost:3001/clientes';
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) {}
 

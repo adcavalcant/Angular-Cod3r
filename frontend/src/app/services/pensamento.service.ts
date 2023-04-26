@@ -8,7 +8,7 @@ import { Pensamento } from '../models/pensamento.model';
   providedIn: 'root',
 })
 export class PensamentoService {
-  baseUrl = 'http://localhost:3000/pensamentos';
+  baseUrl = 'http://localhost:3001/pensamentos';
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) {}
 

@@ -9,7 +9,8 @@ import { map, catchError } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class ProductService {
-  baseUrl = 'http://localhost:3000/products';
+  baseUrl = 'http://localhost:3001/products';
+  baseUrlLaravel = 'http://localhost:8000/api/products';
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) {}
 
@@ -23,21 +24,21 @@ export class ProductService {
   }
 
   create(product: Product): Observable<Product> {
-    return this.http.post<Product>(this.baseUrl, product).pipe(
+    return this.http.post<Product>(this.baseUrlLaravel, product).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );
   }
 
   read(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.baseUrl).pipe(
+    return this.http.get<Product[]>(this.baseUrlLaravel).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );
   }
 
   readById(id: string): Observable<Product> {
-    const url = `${this.baseUrl}/${id}`;
+    const url = `${this.baseUrlLaravel}/${id}`;
     return this.http.get<Product>(url).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
@@ -45,7 +46,7 @@ export class ProductService {
   }
 
   update(product: Product): Observable<Product> {
-    const url = `${this.baseUrl}/${product._id}`;
+    const url = `${this.baseUrlLaravel}/${product.id}`;
     return this.http.put<Product>(url, product).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
@@ -53,7 +54,7 @@ export class ProductService {
   }
 
   delete(id: string): Observable<Product> {
-    const url = `${this.baseUrl}/${id}`;
+    const url = `${this.baseUrlLaravel}/${id}`;
     return this.http.delete<Product>(url).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))

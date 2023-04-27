@@ -8,7 +8,8 @@ import { Pensamento } from '../models/pensamento.model';
   providedIn: 'root',
 })
 export class PensamentoService {
-  baseUrl = 'http://localhost:3001/pensamentos';
+  baseUr = 'http://localhost:3001/pensamentos';
+  baseUrlLaravel = 'http://localhost:8000/api/pensamentos';
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) {}
 
@@ -22,20 +23,20 @@ export class PensamentoService {
   }
 
   criar(pensamento: Pensamento): Observable<Pensamento> {
-    return this.http.post<Pensamento>(this.baseUrl, pensamento);
+    return this.http.post<Pensamento>(this.baseUrlLaravel, pensamento);
   }
 
   listar(): Observable<Pensamento[]> {
-    return this.http.get<Pensamento[]>(this.baseUrl);
+    return this.http.get<Pensamento[]>(this.baseUrlLaravel);
   }
 
   listarPorId(id: string): Observable<Pensamento> {
-    const url = `${this.baseUrl}/${id}`;
+    const url = `${this.baseUrlLaravel}/${id}`;
     return this.http.get<Pensamento>(url);
   }
 
   atualizar(pensamento: Pensamento): Observable<Pensamento> {
-    const url = `${this.baseUrl}/${pensamento._id}`;
+    const url = `${this.baseUrlLaravel}/${pensamento.id}`;
     return this.http.put<Pensamento>(url, pensamento).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
@@ -43,7 +44,7 @@ export class PensamentoService {
   }
 
   excluir(id: string): Observable<Pensamento> {
-    const url = `${this.baseUrl}/${id}`;
+    const url = `${this.baseUrlLaravel}/${id}`;
     return this.http.delete<Pensamento>(url).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))

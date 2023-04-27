@@ -29,7 +29,7 @@ export class ClienteDeleteComponent {
   }
 
   deleteClient(): void {
-    this.clienteService.delete(this.cliente._id + '').subscribe(() => {
+    this.clienteService.delete(this.cliente.id + '').subscribe(() => {
       this.clienteService.showMessage(
         `Produto '${this.cliente.name}' excluído com sucesso!`
       );

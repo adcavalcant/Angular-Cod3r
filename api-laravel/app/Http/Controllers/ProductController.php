@@ -18,16 +18,6 @@ class ProductController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -35,7 +25,8 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        ModelsProduct::create($request->all());
+        return response()->json(["msg"=>"Criado com sucesso!"]);
     }
 
     /**
@@ -46,18 +37,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        return ModelsProduct::findOrFail($id);
     }
 
     /**
@@ -69,7 +49,8 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product = ModelsProduct::findOrFail($id);
+        $product->update($request->all());
     }
 
     /**
@@ -78,8 +59,9 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(ModelsProduct $product)
     {
-        //
+        $product->delete();
+        return response()->json(["msg"=>"Deletado com sucesso!"]);
     }
 }

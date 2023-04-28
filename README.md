@@ -1,44 +1,64 @@
-# Título do Tutorial
-
-Uma breve introdução do que será abordado neste tutorial. Isso pode incluir por que é importante aprender a habilidade que você está ensinando, o que os leitores podem esperar aprender e quais ferramentas ou tecnologias serão necessárias.
+# Tutorial para rodar o projeto
 
 ## Pré-requisitos
 
-* Node.js e NPM instalados
-* Angular CLI instalado
+### frontend
+* Node.js e NPM instalados.
+* Angular CLI instalado.
+
+### API json-server 
+* Node.js e NPM instalados.
+
+### API Express
+* Node.js e NPM instalados.
 * MongoDB instalado e rodando
-* Laravel instalado e configurado.
-* json-server instalado no projeto (npm install json-server) - configurações abaixo...
-* postgresql instalado e rodando.
 
-## Passo 1 - Descrição do Passo 1
+### API em Laravel
+* Composer.
+* PHP instalado e configurado.
+* POSTGRESQL instalado e configurado. (obs: instale o pgAdmin para conseguir gerenciar o banco na interface gráfica)
 
+## Passo 1 - Rodando o projeto frontend -> Angular
+
+* dentro da pasta frontend, rode o comando: "npm install" (para instalar as dependências do projeto)
+* comando "npm start" inicializa o frontend.
+* para mudar a api, abra o arquivo src/environments/environment.development.ts e descomente a linha da url da api que deseja utilizar...
 ```javascript
-// seu código em Javascript aqui
+export const environment = {
+  production: false,
+  apiUrl: 'http://localhost:3000/', //express
+  // apiUrl: 'http://localhost:3001/', //json-server
+  // apiUrl: 'http://localhost:8000/api/', //laravel;
+  apiKey: '54321'
+};
 ```
+* projeto rodando em http://localhost:4200 🔥
 
-Uma descrição do que será ensinado no primeiro passo. Isso pode incluir uma explicação dos conceitos básicos que serão cobertos e uma visão geral do que os leitores podem esperar realizar neste passo.
+## Passo 2 - Rodando a API json-server (API Fake)
+* entre na pasta do projeto: $ cd api-json-server
+* rode o comando: $ npm start
+* API rodando em http://localhost:3001 🔥
 
-### Subpasso 1.1 - Descrição do Subpasso 1.1
+## Passo 3 - Rodando a API Express
+* entre na pasta do projeto express: $ cd api-express
+* rode o comando: npm install (para instalar as dependências do projeto)
+* faça uma cópia do arquivo .env.example com nome de .env e adicione as seguintes configurações
+```
+DB_USER=cavalcante
+DB_PASS=cjx3WFXg8d4orZKh
+SECRET=abdia8s7d6g3dny3v278hdn6tcb326nexydh2n378
+```
+* rode o comando: $ npm start
+* API rodando em http://localhost:3000 🔥
 
-Uma descrição mais detalhada do que será ensinado neste subpasso. Isso pode incluir comandos específicos ou uma explicação mais detalhada dos conceitos apresentados no Passo 1.
+## Passo 4 - Rodando a API em Laravel
+* No PGADMIN, crie um banco de dados chamado 'sisg'
+* Entre na pasta do projeto: $ cd api-express
+* rode o comando: $ composer install (para instalar as dependências do projeto)
+* rode o comando: $ php artisan migrate (para criar a estrutura do banco de dados)
+* rode o comando: $ php artisan serve (inicializa a API)
+* API rodando em http://localhost:8000/api 🔥
 
-### Subpasso 1.2 - Descrição do Subpasso 1.2
+## Observações
 
-Uma descrição mais detalhada do que será ensinado neste subpasso. Isso pode incluir comandos específicos ou uma explicação mais detalhada dos conceitos apresentados no Passo 1.
-
-## Passo 2 - Descrição do Passo 2
-
-Uma descrição do que será ensinado no segundo passo. Isso pode incluir uma explicação dos conceitos básicos que serão cobertos e uma visão geral do que os leitores podem esperar realizar neste passo.
-
-### Subpasso 2.1 - Descrição do Subpasso 2.1
-
-Uma descrição mais detalhada do que será ensinado neste subpasso. Isso pode incluir comandos específicos ou uma explicação mais detalhada dos conceitos apresentados no Passo 2.
-
-### Subpasso 2.2 - Descrição do Subpasso 2.2
-
-Uma descrição mais detalhada do que será ensinado neste subpasso. Isso pode incluir comandos específicos ou uma explicação mais detalhada dos conceitos apresentados no Passo 2.
-
-## Conclusão
-
-Uma conclusão breve do tutorial. Isso pode incluir uma recapitulação dos principais conceitos abordados e uma sugestão para onde os leitores podem ir a partir daqui para continuar aprendendo. Também é útil incluir informações sobre como os leitores podem entrar em contato com você se tiverem dúvidas ou feedback sobre o tutorial.
+* Se o banco de dados não estiver criado, após o comando "php artisan migrate", o laravel não criará as tabelas necessárias para operação correta da API.

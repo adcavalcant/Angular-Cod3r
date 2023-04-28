@@ -4,13 +4,13 @@ import { Observable, EMPTY } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Cliente } from '../models/cliente.model';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ClienteService {
-  baseUrl = 'http://localhost:3001/clientes';
-  baseUrlLaravel = 'http://localhost:8000/api/clientes';
+  baseUrl = environment.apiUrl+'clientes';
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) {}
 
@@ -24,21 +24,21 @@ export class ClienteService {
   }
 
   create(cliente: Cliente): Observable<Cliente> {
-    return this.http.post<Cliente>(this.baseUrlLaravel, cliente).pipe(
+    return this.http.post<Cliente>(this.baseUrl, cliente).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );
   }
 
   read(): Observable<Cliente[]> {
-    return this.http.get<Cliente[]>(this.baseUrlLaravel).pipe(
+    return this.http.get<Cliente[]>(this.baseUrl).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );
   }
 
   readById(id: string): Observable<Cliente> {
-    const url = `${this.baseUrlLaravel}/${id}`;
+    const url = `${this.baseUrl}/${id}`;
     return this.http.get<Cliente>(url).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
@@ -46,7 +46,7 @@ export class ClienteService {
   }
 
   update(cliente: Cliente): Observable<Cliente> {
-    const url = `${this.baseUrlLaravel}/${cliente.id}`;
+    const url = `${this.baseUrl}/${cliente.id}`;
     return this.http.put<Cliente>(url, cliente).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
@@ -54,7 +54,7 @@ export class ClienteService {
   }
 
   delete(id: string): Observable<Cliente> {
-    const url = `${this.baseUrlLaravel}/${id}`;
+    const url = `${this.baseUrl}/${id}`;
     return this.http.delete<Cliente>(url).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))

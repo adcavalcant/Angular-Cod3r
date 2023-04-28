@@ -4,13 +4,13 @@ import { HttpClient } from '@angular/common/http';
 import { Product } from '../models/product.model';
 import { Observable, EMPTY } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
-  baseUrl = 'http://localhost:3001/products';
-  baseUrlLaravel = 'http://localhost:8000/api/products';
+  baseUrl = environment.apiUrl+'products';
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) {}
 
@@ -24,21 +24,21 @@ export class ProductService {
   }
 
   create(product: Product): Observable<Product> {
-    return this.http.post<Product>(this.baseUrlLaravel, product).pipe(
+    return this.http.post<Product>(this.baseUrl, product).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );
   }
 
   read(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.baseUrlLaravel).pipe(
+    return this.http.get<Product[]>(this.baseUrl).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );
   }
 
   readById(id: string): Observable<Product> {
-    const url = `${this.baseUrlLaravel}/${id}`;
+    const url = `${this.baseUrl}/${id}`;
     return this.http.get<Product>(url).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
@@ -46,7 +46,7 @@ export class ProductService {
   }
 
   update(product: Product): Observable<Product> {
-    const url = `${this.baseUrlLaravel}/${product.id}`;
+    const url = `${this.baseUrl}/${product.id}`;
     return this.http.put<Product>(url, product).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
@@ -54,7 +54,7 @@ export class ProductService {
   }
 
   delete(id: string): Observable<Product> {
-    const url = `${this.baseUrlLaravel}/${id}`;
+    const url = `${this.baseUrl}/${id}`;
     return this.http.delete<Product>(url).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))

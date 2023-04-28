@@ -12,7 +12,7 @@ const dbUser = process.env.DB_USER;
 const dbPass = process.env.DB_PASS;
 
 mongoose.connect(
-  `mongodb+srv://${dbUser}:${dbPass}@alura.4vllcau.mongodb.net/alura-node`
+  `mongodb+srv://${dbUser}:${dbPass}@personal-cluster.gdml15c.mongodb.net/crud`
 );
 
 let db = mongoose.connection;

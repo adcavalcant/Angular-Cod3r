@@ -24,6 +24,11 @@
       "id": 5,
       "name": "Monitor Acer 27'",
       "price": 999
+    },
+    {
+      "name": "testse",
+      "price": "4234",
+      "id": 6
     }
   ],
   "clientes": [
@@ -50,6 +55,12 @@
       "name": "sanderli",
       "surname": "gomes",
       "salario": 3500
+    },
+    {
+      "name": "teste",
+      "surname": "tese",
+      "salario": "24234",
+      "id": 6
     }
   ],
   "pensamentos": [
@@ -94,6 +105,12 @@
       "autoria": "adasd",
       "modelo": "modelo1",
       "id": 7
+    },
+    {
+      "conteudo": "teste2",
+      "autoria": "testeste",
+      "modelo": "modelo4",
+      "id": 8
     }
   ]
 }

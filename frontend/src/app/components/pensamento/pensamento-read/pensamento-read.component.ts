@@ -19,10 +19,4 @@ export class PensamentoReadComponent implements OnInit {
       this.listaPensamentos = listaPensamentos;
     });
   }
-
-  logOut() {
-    localStorage.removeItem('token');
-    this.router.navigate(['login']);
-    console.log('deslogou');
-  }
 }

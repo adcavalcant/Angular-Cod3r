@@ -12,11 +12,12 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('models_pensamentos', function (Blueprint $table) {
+        Schema::create('pensamentos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('conteudo');
             $table->string('autoria');
             $table->string('modelo');
+            $table->timestamps();
         });
     }
 
@@ -27,6 +28,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('models_pensamentos');
+        Schema::dropIfExists('pensamentos');
     }
 };

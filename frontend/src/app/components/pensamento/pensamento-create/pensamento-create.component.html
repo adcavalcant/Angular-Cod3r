@@ -87,6 +87,28 @@
           </p>
         </div>
       </div>
+      <div class="radio-modelo">
+        <label for="modelo4">
+          <input
+            type="radio"
+            id="modelo4"
+            value="modelo4"
+            formControlName="modelo"
+          />
+          <div class="custom-radio">
+            <span></span>
+          </div>
+          <span>Modelo 4</span>
+        </label>
+        Prévia:
+        <div class="modelo modelo4 ff-roboto-mono">
+          <img src="assets/img/modelo4.png" alt="Aspas vermelhas" />
+          <p class="conteudo">{{ formulario.get("conteudo")?.value }}</p>
+          <p class="autoria">
+            <b>{{ formulario.get("autoria")?.value }}</b>
+          </p>
+        </div>
+      </div>
     </div>
     <div class="acoes">
       <button (click)="criarPensamento()" class="botao">Salvar</button>

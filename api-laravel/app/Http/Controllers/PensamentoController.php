@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ModelsPensamento;
+use App\Models\Pensamento;
 use Illuminate\Http\Request;
 
 class PensamentoController extends Controller
@@ -14,7 +14,7 @@ class PensamentoController extends Controller
      */
     public function index()
     {
-        return ModelsPensamento::all();
+        return Pensamento::all();
     }
 
     /**
@@ -25,7 +25,7 @@ class PensamentoController extends Controller
      */
     public function store(Request $request)
     {
-        return ModelsPensamento::create($request->all());
+        return Pensamento::create($request->all());
     }
 
     /**
@@ -36,7 +36,7 @@ class PensamentoController extends Controller
      */
     public function show($id)
     {
-        return ModelsPensamento::findOrFail($id);
+        return Pensamento::findOrFail($id);
     }
 
     /**
@@ -48,7 +48,7 @@ class PensamentoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $pensamento = ModelsPensamento::findOrFail($id);
+        $pensamento = Pensamento::findOrFail($id);
         $pensamento->update($request->all());
     }
 
@@ -60,7 +60,7 @@ class PensamentoController extends Controller
      */
     public function destroy($id)
     {
-        $pensamento = ModelsPensamento::findOrFail($id);
+        $pensamento = Pensamento::findOrFail($id);
         $pensamento->delete();
     }
 }

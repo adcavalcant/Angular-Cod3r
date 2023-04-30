@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
-use App\Models\Product;
+use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return Product::all();
+        $users = User::all();
+        return response()->json($users);
     }
 
     /**
@@ -25,8 +27,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        Product::create($request->all());
-        return response()->json(["msg"=>"Criado com sucesso!"]);
+        //
     }
 
     /**
@@ -37,7 +38,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        return Product::findOrFail($id);
+        //
     }
 
     /**
@@ -49,8 +50,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $product = Product::findOrFail($id);
-        $product->update($request->all());
+        //
     }
 
     /**
@@ -59,9 +59,8 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
-        $product->delete();
-        return response()->json(["msg"=>"Deletado com sucesso!"]);
+        //
     }
 }

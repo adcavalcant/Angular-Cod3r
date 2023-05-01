@@ -1,4 +1,17 @@
-# Tutorial para rodar o projeto
+# Tecnologias utilizadas no Projeto
+
+- typescript 
+- angular
+- json-server
+- javascript
+- nodejs
+- express
+- mongodb
+- php
+- laravel
+- postgreSQL
+ 
+# Tutorial
 
 ## Pré-requisitos
 

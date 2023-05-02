@@ -16,5 +16,4 @@ Route::group([
     Route::post('logout', 'App\Http\Controllers\Api\AuthController@logout');
     Route::post('refresh', 'App\Http\Controllers\Api\AuthController@refresh');
     Route::post('me', 'App\Http\Controllers\Api\AuthController@me');
-
 });

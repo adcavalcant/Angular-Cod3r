@@ -70,7 +70,8 @@ SECRET=abdia8s7d6g3dny3v278hdn6tcb326nexydh2n378
 * Entre na pasta do projeto: $ cd api-express
 * rode o comando: $ composer install (para instalar as dependências do projeto)
 * crie uma cópia do arquivo .env.example com o nome de .env, substitua as configurações do seu bd...(driver, database, username, password)
-* rode o comando: $ php artisan key:generate para gerar a chave de seguranç da aplicação. (Será gerada no final do arquivo .env)
+* rode o comando: $ php artisan key:generate para gerar a chave de seguranç da aplicação.
+* rode o comando: $ php artisan jwt:secret para gerar o secret do jwt.
 * rode o comando: $ php artisan migrate (para criar a estrutura do banco de dados)
 * rode o comando: $ php artisan serve (inicializa a API)
 * API rodando em http://localhost:8000/api 🔥

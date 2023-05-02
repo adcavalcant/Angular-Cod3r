@@ -12,7 +12,6 @@
 - postgreSQL
  
 # Tutorial
-
 ## Pré-requisitos
 
 ### frontend

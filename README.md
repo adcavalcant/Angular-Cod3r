@@ -2,7 +2,6 @@
 
 - typescript 
 - angular
-- json-server
 - javascript
 - nodejs
 - express
@@ -17,9 +16,6 @@
 ### frontend
 * Node.js e NPM instalados.
 * Angular CLI instalado.
-
-### API json-server 
-* Node.js e NPM instalados.
 
 ### API Express
 * Node.js e NPM instalados.
@@ -46,12 +42,7 @@ export const environment = {
 ```
 * projeto rodando em http://localhost:4200 🔥
 
-## Passo 2 - Rodando a API json-server (API Fake)
-* entre na pasta do projeto: $ cd api-json-server
-* rode o comando: $ npm start
-* API rodando em http://localhost:3001 🔥
-
-## Passo 3 - Rodando a API Express
+## Passo 2 - Rodando a API Express
 * entre na pasta do projeto express: $ cd api-express
 * rode o comando: npm install (para instalar as dependências do projeto)
 * faça uma cópia do arquivo .env.example com nome de .env e adicione as seguintes configurações
@@ -63,7 +54,7 @@ SECRET=abdia8s7d6g3dny3v278hdn6tcb326nexydh2n378
 * rode o comando: $ npm start
 * API rodando em http://localhost:3000 🔥
 
-## Passo 4 - Rodando a API em Laravel
+## Passo 3 - Rodando a API em Laravel
 * Para o Postgres -> No PGADMIN, crie um banco de dados chamado 'sisg'.
 * No Projeto Laravel:
 * Entre na pasta do projeto: $ cd api-express

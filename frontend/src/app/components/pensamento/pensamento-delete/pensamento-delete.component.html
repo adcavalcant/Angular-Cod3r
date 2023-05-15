@@ -97,6 +97,30 @@
           </p>
         </div>
       </div>
+      <div class="radio-modelo">
+        <label for="modelo4">
+          <input
+            type="radio"
+            id="modelo4"
+            value="modelo4"
+            name="modelo4"
+            disabled
+            [(ngModel)]="pensamento.modelo"
+          />
+          <div class="custom-radio">
+            <span></span>
+          </div>
+          <span>Modelo 4</span>
+        </label>
+        Prévia:
+        <div class="modelo modelo4 ff-roboto-mono">
+          <img src="assets/img/modelo4.png" alt="Aspas vermelhas" />
+          <p class="conteudo">{{ pensamento.conteudo }}</p>
+          <p class="autoria">
+            <b>{{ pensamento.autoria }}</b>
+          </p>
+        </div>
+      </div>
     </div>
     <div class="acoes">
       <button (click)="excluirPensamento()" class="botao botao-deletar">

@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment.development';
   providedIn: 'root',
 })
 export class PensamentoService {
-  baseUrl = environment.apiUrl+'pensamentos';
+  baseUrl = environment.apiUrl + 'pensamentos';
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) {}
 

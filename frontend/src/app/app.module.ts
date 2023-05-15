@@ -9,7 +9,6 @@ import { HeaderComponent } from './components/template/header/header.component';
 import { FooterComponent } from './components/template/footer/footer.component';
 import { HomeComponent } from './views/home/home.component';
 import { NavComponent } from './components/template/nav/nav.component';
-import { CadastroComponent } from './components/template/cadastro/cadastro.component';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -53,8 +52,6 @@ import { PensamentoUpdateComponent } from './components/pensamento/pensamento-up
 import { PensamentoDeleteComponent } from './components/pensamento/pensamento-delete/pensamento-delete.component';
 import { PensamentoCardComponent } from './components/pensamento/pensamento-card/pensamento-card.component';
 import { MensagemComponent } from './components/mensagem/mensagem.component';
-import { LoginComponent } from './views/home/login/login.component';
-import { RegisterComponent } from './views/home/register/register.component';
 
 registerLocaleData(localePt);
 
@@ -63,7 +60,6 @@ registerLocaleData(localePt);
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    CadastroComponent,
     HomeComponent,
     NavComponent,
     ProductCrudComponent,
@@ -84,8 +80,6 @@ registerLocaleData(localePt);
     PensamentoDeleteComponent,
     PensamentoCardComponent,
     MensagemComponent,
-    LoginComponent,
-    RegisterComponent,
   ],
   imports: [
     BrowserModule,

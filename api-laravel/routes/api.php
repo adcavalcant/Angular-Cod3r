@@ -18,6 +18,7 @@ Route::post('/login', function (Request $request) {
 
     $user = User::where('email', $request->email)->first();
 
+<<<<<<< HEAD
     if (!$user || !Hash::check($request->password, $user->password)) {
         throw ValidationException::withMessages([
             'email' => ['The provided credentials are incorrect.'],
@@ -25,6 +26,12 @@ Route::post('/login', function (Request $request) {
     }
 
     return $user->createToken('auth-token')->plainTextToken;
+=======
+    Route::post('login', 'App\Http\Controllers\Api\AuthController@login');
+    Route::post('logout', 'App\Http\Controllers\Api\AuthController@logout');
+    Route::post('refresh', 'App\Http\Controllers\Api\AuthController@refresh');
+    Route::post('me', 'App\Http\Controllers\Api\AuthController@me');
+>>>>>>> fffde295d87d9cfd50c801b28eb335176aacaf32
 });
 
 Route::middleware('auth:sanctum')->get('users', 'App\Http\Controllers\Api\UserController@index');

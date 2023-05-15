@@ -1,13 +1,21 @@
-# Tutorial para rodar o projeto
+# Tecnologias utilizadas no Projeto
 
+- typescript 
+- angular
+- javascript
+- nodejs
+- express
+- mongodb
+- php
+- laravel
+- postgreSQL
+ 
+# Tutorial
 ## Pré-requisitos
 
 ### frontend
 * Node.js e NPM instalados.
 * Angular CLI instalado.
-
-### API json-server 
-* Node.js e NPM instalados.
 
 ### API Express
 * Node.js e NPM instalados.
@@ -27,19 +35,13 @@
 export const environment = {
   production: false,
   apiUrl: 'http://localhost:3000/', //express
-  // apiUrl: 'http://localhost:3001/', //json-server
   // apiUrl: 'http://localhost:8000/api/', //laravel;
   apiKey: '54321'
 };
 ```
 * projeto rodando em http://localhost:4200 🔥
 
-## Passo 2 - Rodando a API json-server (API Fake)
-* entre na pasta do projeto: $ cd api-json-server
-* rode o comando: $ npm start
-* API rodando em http://localhost:3001 🔥
-
-## Passo 3 - Rodando a API Express
+## Passo 2 - Rodando a API Express
 * entre na pasta do projeto express: $ cd api-express
 * rode o comando: npm install (para instalar as dependências do projeto)
 * faça uma cópia do arquivo .env.example com nome de .env e adicione as seguintes configurações
@@ -51,10 +53,14 @@ SECRET=abdia8s7d6g3dny3v278hdn6tcb326nexydh2n378
 * rode o comando: $ npm start
 * API rodando em http://localhost:3000 🔥
 
-## Passo 4 - Rodando a API em Laravel
-* No PGADMIN, crie um banco de dados chamado 'sisg'
+## Passo 3 - Rodando a API em Laravel
+* Para o Postgres -> No PGADMIN, crie um banco de dados chamado 'sisg'.
+* No Projeto Laravel:
 * Entre na pasta do projeto: $ cd api-express
 * rode o comando: $ composer install (para instalar as dependências do projeto)
+* crie uma cópia do arquivo .env.example com o nome de .env, substitua as configurações do seu bd...(driver, database, username, password)
+* rode o comando: $ php artisan key:generate para gerar a chave de seguranç da aplicação.
+* rode o comando: $ php artisan jwt:secret para gerar o secret do jwt.
 * rode o comando: $ php artisan migrate (para criar a estrutura do banco de dados)
 * rode o comando: $ php artisan serve (inicializa a API)
 * API rodando em http://localhost:8000/api 🔥

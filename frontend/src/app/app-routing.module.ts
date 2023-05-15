@@ -16,13 +16,9 @@ import { PensamentoCrudComponent } from './views/pensamento-crud/pensamento-crud
 import { PensamentoCreateComponent } from './components/pensamento/pensamento-create/pensamento-create.component';
 import { PensamentoUpdateComponent } from './components/pensamento/pensamento-update/pensamento-update.component';
 import { PensamentoDeleteComponent } from './components/pensamento/pensamento-delete/pensamento-delete.component';
-import { LoginComponent } from './views/home/login/login.component';
-import { RegisterComponent } from './views/home/register/register.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
   { path: 'products', component: ProductCrudComponent },
   { path: 'products/create', component: ProductCreateComponent },
   { path: 'products/update/:id', component: ProductUpdateComponent },

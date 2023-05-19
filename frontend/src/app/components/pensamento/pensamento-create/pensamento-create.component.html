@@ -14,7 +14,8 @@
     <div
       class="mensagem__erro"
       *ngIf="
-        formulario.get('conteudo')?.errors && formulario.get('conteudo')?.touched
+        formulario.get('conteudo')?.errors &&
+        formulario.get('conteudo')?.touched
       "
     >
       Pensamento é obrigatório
@@ -133,7 +134,13 @@
       </div>
     </div>
     <div class="acoes">
-      <button (click)="criarPensamento()" class="botao">Salvar</button>
+      <button
+        [disabled]="!formulario.valid"
+        (click)="criarPensamento()"
+        [ngClass]="habilitarBotao()"
+      >
+        Salvar
+      </button>
       <button (click)="cancelar()" class="botao botao-cancelar">
         Cancelar
       </button>

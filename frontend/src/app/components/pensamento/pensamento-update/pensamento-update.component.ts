@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Pensamento } from 'src/app/models/pensamento.model';
 import { PensamentoService } from 'src/app/services/pensamento.service';
@@ -10,27 +10,40 @@ import { PensamentoService } from 'src/app/services/pensamento.service';
   styleUrls: ['./pensamento-update.component.css'],
 })
 export class PensamentoUpdateComponent {
-  pensamento: Pensamento = {
-    autoria: '',
-    conteudo: '',
-    modelo: '',
-  };
+  formulario!: FormGroup;
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private pensamentoService: PensamentoService
+    private pensamentoService: PensamentoService,
+    private formBuilder: FormBuilder
   ) {}
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.pensamentoService.listarPorId(id).subscribe((pensamento) => {
-      this.pensamento = pensamento;
-    });
+    this.pensamentoService
+      .listarPorId(id!)
+      .subscribe((pensamento) => {
+        this.formulario = this.formBuilder.group({
+          id: [pensamento.id],
+          conteudo: [
+            pensamento.conteudo,
+            Validators.compose([
+              Validators.required,
+              Validators.pattern(/(.|\s)*\S(.|\s)*/),
+            ]),
+          ],
+          autoria: [
+            pensamento.autoria,
+            Validators.compose([Validators.required, Validators.minLength(3)]),
+          ],
+          modelo: [pensamento.modelo],
+        });
+      });
   }
 
   atualizarPensamento() {
-    this.pensamentoService.atualizar(this.pensamento).subscribe(() => {
+    this.pensamentoService.atualizar(this.formulario.value).subscribe(() => {
       this.pensamentoService.showMessage('Pensamento Atualizado!');
       this.router.navigate(['/pensamentos']);
     });
@@ -40,7 +53,7 @@ export class PensamentoUpdateComponent {
   }
 
   habilitarBotao(): string {
-    if (this.pensamento.autoria.length <3) {
+    if (this.formulario.valid) {
       return 'botao';
     } else {
       return 'botao__desabilitado';

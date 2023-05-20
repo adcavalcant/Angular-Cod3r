@@ -11,7 +11,11 @@
   width: 200px;
 }
 
-.criar-pensamentos form {
+.editar-pensamentos {
+  padding: 2rem 0;
+}
+
+.editar-pensamentos form {
   background: #c4edff;
 
   border: none;
@@ -23,13 +27,13 @@
   padding: 2rem;
 }
 
-.criar-pensamentos form label {
+.editar-pensamentos form label {
   color: #154580;
   font-weight: bold;
   margin: 0 0 1rem;
 }
 
-.criar-pensamentos form .input {
+.editar-pensamentos form .input {
   border: none;
   height: 40px;
   padding: 1rem 2rem;
@@ -37,7 +41,7 @@
   margin: 0.5rem 0 2rem;
 }
 
-.criar-pensamentos form .textarea {
+.editar-pensamentos form .textarea {
   border: none;
   padding: 1rem 2rem;
   border-radius: 20px;
@@ -131,6 +135,14 @@ input[type="radio"]:checked + .custom-radio {
 
 input[type="radio"]:checked + .custom-radio span {
   background: #154580;
+}
+
+.mensagem__erro {
+  font-size: 12px;
+  margin-left: 5px;
+  color: red;
+  margin-top: -25px;
+  margin-bottom: 20px;
 }
 
 .botao__desabilitado {

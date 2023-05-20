@@ -1,26 +1,48 @@
-<section class="container mt64px criar-pensamentos ff-inter">
+<section class="container mt64px editar-pensamentos ff-inter">
   <header class="header">
     <h2>Atualização de pensamento</h2>
   </header>
-  <form>
-    <label for="conteudo">Pensamento</label>
+  <form [formGroup]="formulario" *ngIf="formulario">
+    <label for="pensamento">Pensamento</label>
     <input
       type="textarea"
       class="input"
-      id="conteudo"
-      name="conteudo"
-      [(ngModel)]="pensamento.conteudo"
+      id="pensamento"
+      formControlName="conteudo"
       placeholder="Digite o pensamento"
     />
+    <div
+      class="mensagem__erro"
+      *ngIf="formulario.get('conteudo')?.errors?.['required'] && formulario.get('conteudo')?.touched"
+    >
+      Autoria é obrigatória!
+    </div>
     <label for="autoria">Autoria ou fonte</label>
     <input
       type="text"
       class="input"
       id="autoria"
-      name="autoria"
-      [(ngModel)]="pensamento.autoria"
+      formControlName="autoria"
       placeholder="Digite a autoria ou fonte"
     />
+    <div
+      class="mensagem__erro"
+      *ngIf="formulario.get('autoria')?.errors?.['required'] && formulario.get('autoria')?.touched"
+    >
+      Autoria é obrigatória!
+    </div>
+    <div
+      class="mensagem__erro"
+      *ngIf="formulario.get('autoria')?.errors?.['minlength'] && formulario.get('autoria')?.touched"
+    >
+      Autoria precisa ter no mínimo 3 caracteres!
+    </div>
+    <div
+      class="mensagem__erro"
+      *ngIf="formulario.get('autoria')?.errors?.['minusculo'] && formulario.get('autoria')?.touched"
+    >
+      Esse campo aceita apenas letras minúsculas
+    </div>
     <label for="modelo">Selecione o modelo do card</label>
     <div class="container-radio">
       <div class="radio-modelo">
@@ -29,8 +51,7 @@
             type="radio"
             id="modelo1"
             value="modelo1"
-            name="modelo1"
-            [(ngModel)]="pensamento.modelo"
+            formControlName="modelo"
           />
           <div class="custom-radio">
             <span></span>
@@ -40,9 +61,9 @@
         Prévia:
         <div class="modelo modelo1 ff-roboto-mono">
           <img src="assets/img/modelo1.png" alt="Aspas azuis" />
-          <p class="conteudo">{{ pensamento.conteudo }}</p>
+          <p class="conteudo">{{ formulario.get("conteudo")?.value }}</p>
           <p class="autoria">
-            <b>{{ pensamento.autoria }}</b>
+            <b>{{ formulario.get("autoria")?.value }}</b>
           </p>
         </div>
       </div>
@@ -52,8 +73,7 @@
             type="radio"
             id="modelo2"
             value="modelo2"
-            name="modelo2"
-            [(ngModel)]="pensamento.modelo"
+            formControlName="modelo"
           />
           <div class="custom-radio">
             <span></span>
@@ -63,9 +83,9 @@
         Prévia:
         <div class="modelo modelo2 ff-roboto-mono">
           <img src="assets/img/modelo2.png" alt="Aspas azul-claras" />
-          <p class="conteudo">{{ pensamento.conteudo }}</p>
+          <p class="conteudo">{{ formulario.get("conteudo")?.value }}</p>
           <p class="autoria">
-            <b>{{ pensamento.autoria }}</b>
+            <b>{{ formulario.get("autoria")?.value }}</b>
           </p>
         </div>
       </div>
@@ -75,8 +95,7 @@
             type="radio"
             id="modelo3"
             value="modelo3"
-            name="modelo3"
-            [(ngModel)]="pensamento.modelo"
+            formControlName="modelo"
           />
           <div class="custom-radio">
             <span></span>
@@ -86,9 +105,9 @@
         Prévia:
         <div class="modelo modelo3 ff-roboto-mono">
           <img src="assets/img/modelo3.png" alt="Aspas verde-claras" />
-          <p class="conteudo">{{ pensamento.conteudo }}</p>
+          <p class="conteudo">{{ formulario.get("conteudo")?.value }}</p>
           <p class="autoria">
-            <b>{{ pensamento.autoria }}</b>
+            <b>{{ formulario.get("autoria")?.value }}</b>
           </p>
         </div>
       </div>
@@ -98,8 +117,7 @@
             type="radio"
             id="modelo4"
             value="modelo4"
-            name="modelo4"
-            [(ngModel)]="pensamento.modelo"
+            formControlName="modelo"
           />
           <div class="custom-radio">
             <span></span>
@@ -109,15 +127,21 @@
         Prévia:
         <div class="modelo modelo4 ff-roboto-mono">
           <img src="assets/img/modelo4.png" alt="Aspas vermelhas" />
-          <p class="conteudo">{{ pensamento.conteudo }}</p>
+          <p class="conteudo">{{ formulario.get("conteudo")?.value }}</p>
           <p class="autoria">
-            <b>{{ pensamento.autoria }}</b>
+            <b>{{ formulario.get("autoria")?.value }}</b>
           </p>
         </div>
       </div>
     </div>
     <div class="acoes">
-      <button (click)="atualizarPensamento()" class="botao">Atualizar</button>
+      <button
+        [disabled]="!formulario.valid"
+        (click)="atualizarPensamento()"
+        [ngClass]="habilitarBotao()"
+      >
+        Atualizar
+      </button>
       <button (click)="cancelar()" class="botao botao-cancelar">
         Cancelar
       </button>

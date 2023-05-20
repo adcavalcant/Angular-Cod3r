@@ -38,4 +38,12 @@ export class PensamentoUpdateComponent {
   cancelar() {
     this.router.navigate(['/pensamentos']);
   }
+
+  habilitarBotao(): string {
+    if (this.pensamento.autoria.length <3) {
+      return 'botao';
+    } else {
+      return 'botao__desabilitado';
+    }
+  }
 }

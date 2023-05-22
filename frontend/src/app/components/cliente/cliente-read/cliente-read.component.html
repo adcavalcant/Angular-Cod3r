@@ -30,12 +30,8 @@
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef>Ações</th>
       <td mat-cell *matCellDef="let row">
-        <a routerLink="/clientes/update/{{ row.id }}" class="edit"
-          ><i class="material-icons">edit</i></a
-        >
-        <a routerLink="/clientes/delete/{{ row.id }}" class="delete"
-          ><i class="material-icons">delete</i></a
-        >
+        <a routerLink="/clientes/update/{{ row.id }}" class="edit"><i class="material-icons">edit</i></a>
+        <a routerLink="/clientes/delete/{{ row.id }}" class="delete"><i class="material-icons">delete</i></a>
       </td>
     </ng-container>
 
@@ -43,7 +39,6 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
 </div>
-
 <ng-template #semClientes>
   <div class="sem-clientes">
     <p>Ainda não há clientes cadastrados</p>

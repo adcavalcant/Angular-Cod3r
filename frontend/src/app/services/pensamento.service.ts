@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { EMPTY, Observable, catchError, map } from 'rxjs';
@@ -26,8 +26,12 @@ export class PensamentoService {
     return this.http.post<Pensamento>(this.baseUrl, pensamento);
   }
 
-  listar(): Observable<Pensamento[]> {
-    return this.http.get<Pensamento[]>(this.baseUrl);
+  listar(pagina: number): Observable<Pensamento[]> {
+    const itensPorPagina = 6;
+    let params = new HttpParams()
+      .set('_page', pagina)
+      .set('_limit', itensPorPagina);
+    return this.http.get<Pensamento[]>(this.baseUrl, { params });
   }
 
   listarPorId(id: string): Observable<Pensamento> {

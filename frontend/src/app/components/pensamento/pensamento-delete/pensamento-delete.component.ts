@@ -13,6 +13,8 @@ export class PensamentoDeleteComponent {
     autoria: '',
     conteudo: '',
     modelo: '',
+    created_at: '',
+    updated_at: '',
   };
 
   constructor(

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Pensamento;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 
 class PensamentoController extends Controller
 {
@@ -13,9 +14,18 @@ class PensamentoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return Pensamento::all();
+        $page = $request->query('_page', 1);
+        $perPage = $request->query('_limit', 6);
+
+        Paginator::currentPageResolver(function () use ($page) {
+            return $page;
+        });
+
+        $pensamentos = Pensamento::paginate($perPage);
+
+        return response()->json($pensamentos);
     }
 
     /**

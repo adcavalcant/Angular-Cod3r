@@ -52,6 +52,7 @@ import { PensamentoUpdateComponent } from './components/pensamento/pensamento-up
 import { PensamentoDeleteComponent } from './components/pensamento/pensamento-delete/pensamento-delete.component';
 import { PensamentoCardComponent } from './components/pensamento/pensamento-card/pensamento-card.component';
 import { MensagemComponent } from './components/mensagem/mensagem.component';
+import { BotaoCarregarMaisComponent } from './components/pensamento/pensamento-read/botao-carregar-mais/botao-carregar-mais.component';
 
 registerLocaleData(localePt);
 
@@ -80,6 +81,7 @@ registerLocaleData(localePt);
     PensamentoDeleteComponent,
     PensamentoCardComponent,
     MensagemComponent,
+    BotaoCarregarMaisComponent,
   ],
   imports: [
     BrowserModule,

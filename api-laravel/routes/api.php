@@ -10,6 +10,7 @@ Route::apiResource('clientes', 'App\Http\Controllers\Api\ClienteController');
 Route::apiResource('products', 'App\Http\Controllers\Api\ProductController');
 Route::apiResource('pensamentos', 'App\Http\Controllers\Api\PensamentoController');
 
+
 Route::post('/login', function (Request $request) {
     $request->validate([
         'email' => 'required|email',

@@ -9,11 +9,13 @@ import { Pensamento } from 'src/app/models/pensamento.model';
 })
 export class PensamentoCardComponent {
   @Input() pensamento: Pensamento = {
-    // o Decorator @Input diz pro angular que agora esse componente irá receber informações do componente pai 'listarPensamento'
-    id: '3dmdaism3i2n3',
+    // o Decorator @Input diz pro angular que agora esse componente irá receber informações do componente pai 'pensamento-read'
+    id: '',
     conteudo: '',
-    autoria: '3S Cavalcante',
-    modelo: 'modelo3',
+    autoria: '',
+    modelo: '',
+    created_at: '',
+    updated_at: '',
   };
   constructor() {}
 

@@ -3,4 +3,6 @@ export interface Pensamento {
   conteudo: string;
   autoria: string;
   modelo: string;
+  created_at: string;
+  updated_at: string;
 }

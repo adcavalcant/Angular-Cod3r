@@ -26,11 +26,14 @@ export class PensamentoService {
     return this.http.post<Pensamento>(this.baseUrl, pensamento);
   }
 
-  listar(pagina: number): Observable<Pensamento[]> {
-    const itensPorPagina = 6;
+  listar(pagina: number, filtro: string): Observable<Pensamento[]> {
+    const itensPorPagina = 9;
     let params = new HttpParams()
       .set('_page', pagina)
       .set('_limit', itensPorPagina);
+    if (filtro.trim().length > 2) {
+      params = params.set('q', filtro);
+    }
     return this.http.get<Pensamento[]>(this.baseUrl, { params });
   }
 

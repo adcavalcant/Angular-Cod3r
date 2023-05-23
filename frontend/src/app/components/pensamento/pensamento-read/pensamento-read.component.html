@@ -1,4 +1,15 @@
 <section class="container">
+  <div class="buscar-pensamentos">
+    <input
+      type="serch"
+      class="filtro"
+      placeholder="O que você procura?"
+      autofocus
+      [(ngModel)]="filtro"
+      (keyup)="pesquisarPensamentos()"
+    />
+    <img src="/assets/img/lupa.png" alt="Lupa Azul" />
+  </div>
   <div class="mural" *ngIf="listaPensamentos.length > 0; else semPensamentos">
     <div *ngFor="let pensamento of listaPensamentos">
       <app-pensamento-card [pensamento]="pensamento"></app-pensamento-card>

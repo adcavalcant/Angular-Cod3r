@@ -16,16 +16,22 @@ class PensamentoController extends Controller
      */
     public function index(Request $request)
     {
+        $query = $request->query('q');
+        $pensamentos = Pensamento::query();
+
+        if ($query) {
+            $pensamentos->where(function ($queryBuilder) use ($query) {
+                $queryBuilder->where('conteudo', 'like', '%'.$query.'%')
+                    ->orWhere('autoria', 'like', '%'.$query.'%');
+            });
+        }
+
         $page = $request->query('_page', 1);
-        $perPage = $request->query('_limit', 6);
+        $perPage = $request->query('_limit', 9);
 
-        Paginator::currentPageResolver(function () use ($page) {
-            return $page;
-        });
+        $paginator = $pensamentos->paginate($perPage, ['*'], '_page', $page);
 
-        $pensamentos = Pensamento::paginate($perPage);
-
-        return response()->json($pensamentos);
+        return response()->json($paginator);
     }
 
     /**

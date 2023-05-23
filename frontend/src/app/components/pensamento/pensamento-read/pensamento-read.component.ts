@@ -12,11 +12,12 @@ export class PensamentoReadComponent implements OnInit {
   listaPensamentos: Pensamento[] = [];
   paginaAtual: number = 1;
   haMaisPensamentos: boolean = true;
+  filtro: string = '';
 
   constructor(private service: PensamentoService, private router: Router) {}
 
   ngOnInit(): void {
-    this.service.listar(this.paginaAtual).subscribe(
+    this.service.listar(this.paginaAtual, this.filtro).subscribe(
       (resposta: any) => {
         this.listaPensamentos = resposta.data;
       },
@@ -27,9 +28,9 @@ export class PensamentoReadComponent implements OnInit {
   }
 
   carregarMaisPensamentos() {
-    this.service.listar(++this.paginaAtual).subscribe(
-      (response: any) => {
-        const listaPensamentos = response.data;
+    this.service.listar(++this.paginaAtual, this.filtro).subscribe(
+      (resposta: any) => {
+        const listaPensamentos = resposta.data;
         if (Array.isArray(listaPensamentos)) {
           this.listaPensamentos.push(...listaPensamentos);
           if (listaPensamentos.length === 0) {
@@ -41,5 +42,14 @@ export class PensamentoReadComponent implements OnInit {
         console.log('Erro ao carregar mais pensamentos:', error);
       }
     );
+  }
+  pesquisarPensamentos() {
+    this.haMaisPensamentos = true;
+    this.paginaAtual = 1;
+    this.service
+      .listar(this.paginaAtual, this.filtro)
+      .subscribe((listaPensamentos: any) => {
+        this.listaPensamentos = listaPensamentos.data;
+      });
   }
 }

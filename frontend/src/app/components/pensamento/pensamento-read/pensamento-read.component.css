@@ -42,18 +42,21 @@
   justify-content: center;
 }
 
+.busca-container {
+  margin-left: 250px;
+  margin-top: 20px;
+}
+
 .buscar-pensamentos {
+
   background: #f8f9fe;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   height: 44px;
-  left: 421px;
-  top: 490px;
   width: 500px;
   display: flex;
   align-items: center;
   text-align: center;
-  align-self: center;
 }
 
 .buscar-pensamentos img {

@@ -17,4 +17,8 @@ export class ClienteReadComponent {
       this.clientes = clientes;
     });
   }
+
+  carregarMaisClientes(){
+
+  }
 }

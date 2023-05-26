@@ -46,6 +46,10 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
 </div>
+
+<app-botao-carregar-mais-clientes [haMaisClientes]="haMaisClientes" (click)="carregarMaisClientes()">
+</app-botao-carregar-mais-clientes>
+
 <ng-template #semClientes>
   <div class="sem-clientes">
     <p>Ainda não há clientes cadastrados</p>

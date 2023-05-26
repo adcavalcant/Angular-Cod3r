@@ -3,14 +3,14 @@ import { map, catchError } from 'rxjs/operators';
 import { Observable, EMPTY } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Cliente } from '../models/cliente.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ClienteService {
-  baseUrl = environment.apiUrl+'clientes';
+  baseUrl = environment.apiUrl + 'clientes';
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) {}
 
@@ -30,11 +30,15 @@ export class ClienteService {
     );
   }
 
-  read(): Observable<Cliente[]> {
-    return this.http.get<Cliente[]>(this.baseUrl).pipe(
-      map((obj) => obj),
-      catchError((e) => this.errorHandler(e))
-    );
+  read(pagina: number, filtro: string): Observable<Cliente[]> {
+    const itensPorPagina = 9;
+    let params = new HttpParams()
+      .set('_page', pagina)
+      .set('_limit', itensPorPagina);
+    if (filtro.trim().length > 2) {
+      params = params.set('q', filtro);
+    }
+    return this.http.get<Cliente[]>(this.baseUrl, { params });
   }
 
   readById(id: string): Observable<Cliente> {

@@ -13,3 +13,23 @@ table {
 .delete > i {
   color: #e35e6b;
 }
+
+.busca-container {
+  margin-bottom: 20px;
+}
+
+.buscar-clientes {
+  background: #f8f9fe;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  height: 44px;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.buscar-clientes img {
+  padding-right: 15px;
+  width: 50px;
+}

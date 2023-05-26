@@ -14,9 +14,22 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return Product::all();
+        $query = $request->query('q');
+        $products = Product::query();
+
+        if ($query) {
+            $products->where(function ($queryBuilder) use ($query) {
+                $queryBuilder->where('name', 'like', '%'.$query.'%');
+            });
+        }
+
+        $page = $request->query('_page', 1);
+        $perPage = $request->query('_limit', 9);
+
+        $paginator = $products->paginate($perPage, ['*'], '_page', $page);
+        return response()->json($paginator);
     }
 
     /**

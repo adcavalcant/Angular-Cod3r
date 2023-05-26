@@ -13,9 +13,23 @@ class ClienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return Cliente::all();
+        $query = $request->query('q');
+        $clientes = Cliente::query();
+
+        if ($query) {
+            $clientes->where(function ($queryBuilder) use ($query) {
+                $queryBuilder->where('name', 'like', '%'.$query.'%')
+                    ->orWhere('surname', 'like', '%'.$query.'%');
+            });
+        }
+
+        $page = $request->query('_page', 1);
+        $perPage = $request->query('_limit', 9);
+
+        $paginator = $clientes->paginate($perPage, ['*'], '_page', $page);
+        return response()->json($paginator);
     }
 
 

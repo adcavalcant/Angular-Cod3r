@@ -43,8 +43,9 @@
 }
 
 .busca-container {
-  margin-left: 250px;
-  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+
 }
 
 .buscar-pensamentos {

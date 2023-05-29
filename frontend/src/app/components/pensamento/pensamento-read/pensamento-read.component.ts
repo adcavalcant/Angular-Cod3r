@@ -22,8 +22,8 @@ export class PensamentoReadComponent implements OnInit {
     this.service
       .listar(this.paginaAtual, this.filtro, this.favoritos)
       .subscribe(
-        (resposta: any) => {
-          this.listaPensamentos = resposta.data;
+        (listaPensamentos: any) => {
+          this.listaPensamentos = listaPensamentos.data;
         },
         (error: any) => {
           console.log('Erro ao carregar pensamentos:', error);
@@ -70,5 +70,13 @@ export class PensamentoReadComponent implements OnInit {
         this.listaPensamentos = listaPensamentosFavoritos.data;
         this.listaFavoritos = listaPensamentosFavoritos.data;
       });
+  }
+
+  recarregarComponente() {
+    this.favoritos = false;
+    this.paginaAtual = 1;
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate([this.router.url]);
   }
 }

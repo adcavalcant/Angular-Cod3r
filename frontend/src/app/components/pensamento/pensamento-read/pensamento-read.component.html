@@ -13,7 +13,7 @@
     </div>
   </div>
   <div class="botoes">
-    <button class="botao">Meu Mural</button>
+    <button class="botao" (click)="recarregarComponente()">Meu Mural</button>
     <button class="botao" (click)="listarFavoritos()">Meus Favoritos</button>
   </div>
   <div class="mural" *ngIf="listaPensamentos.length > 0; else semPensamentos">

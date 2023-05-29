@@ -50,6 +50,11 @@ export class PensamentoService {
     );
   }
 
+  mudarFavorito(pensamento: Pensamento): Observable<Pensamento> {
+    pensamento.favorito = !pensamento.favorito;
+    return this.atualizar(pensamento);
+  }
+
   excluir(id: string): Observable<Pensamento> {
     const url = `${this.baseUrl}/${id}`;
     return this.http.delete<Pensamento>(url).pipe(

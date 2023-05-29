@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { HeaderService } from 'src/app/components/template/header/header.service';
 import { Pensamento } from 'src/app/models/pensamento.model';
+import { PensamentoService } from 'src/app/services/pensamento.service';
 
 @Component({
   selector: 'app-pensamento-card',
@@ -18,7 +19,7 @@ export class PensamentoCardComponent {
     created_at: '',
     updated_at: '',
   };
-  constructor() {}
+  constructor(private service: PensamentoService) {}
 
   larguraPensamento(): string {
     if (this.pensamento.conteudo.length >= 256) {
@@ -32,5 +33,9 @@ export class PensamentoCardComponent {
       return 'inativo';
     }
     return 'ativo';
+  }
+
+  atualizarFavoritos() {
+    this.service.mudarFavorito(this.pensamento).subscribe();
   }
 }

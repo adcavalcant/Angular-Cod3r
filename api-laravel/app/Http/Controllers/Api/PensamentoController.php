@@ -17,18 +17,27 @@ class PensamentoController extends Controller
     public function index(Request $request)
     {
         $query = $request->query('q');
+        $favorito = $request->query('favorito');
         $pensamentos = Pensamento::query();
         if ($query) {
             $pensamentos->where(function ($queryBuilder) use ($query) {
-                $queryBuilder->where('conteudo', 'like', '%'.$query.'%')
-                    ->orWhere('autoria', 'like', '%'.$query.'%');
+                $queryBuilder->where('conteudo', 'like', '%' . $query . '%')
+                    ->orWhere('autoria', 'like', '%' . $query . '%')
+                    ->orWhere('modelo', 'like', '%' . $query . '%');
             });
         }
+        if ($favorito && ($favorito === '1' || $favorito === 'true')) {
+            $pensamentos->where('favorito', '1');
+        }
 
-        $page = $request->query('_page', 1);
-        $perPage = $request->query('_limit', 9);
+        if ($favorito === '0' || $favorito === 'false') {
+            $pensamentos->where('favorito', '0');
+        }
 
-        $paginator = $pensamentos->paginate($perPage, ['*'], '_page', $page);
+        $page = $request->query('page', 1);
+        $perPage = $request->query('limit', 9);
+
+        $paginator = $pensamentos->paginate($perPage, ['*'], 'page', $page);
 
         return response()->json($paginator);
     }

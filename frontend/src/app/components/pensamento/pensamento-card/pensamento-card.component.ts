@@ -10,7 +10,6 @@ import { PensamentoService } from 'src/app/services/pensamento.service';
 })
 export class PensamentoCardComponent {
   @Input() pensamento: Pensamento = {
-    // o Decorator @Input diz pro angular que agora esse componente irá receber informações do componente pai 'pensamento-read'
     id: '',
     conteudo: '',
     autoria: '',
@@ -19,6 +18,9 @@ export class PensamentoCardComponent {
     created_at: '',
     updated_at: '',
   };
+
+  @Input() listaFavoritos: Pensamento[] = [];
+
   constructor(private service: PensamentoService) {}
 
   larguraPensamento(): string {
@@ -36,6 +38,8 @@ export class PensamentoCardComponent {
   }
 
   atualizarFavoritos() {
-    this.service.mudarFavorito(this.pensamento).subscribe();
+    this.service.mudarFavorito(this.pensamento).subscribe(() => {
+      this.listaFavoritos.splice(this.listaFavoritos.indexOf(this.pensamento), 1);
+    });
   }
 }

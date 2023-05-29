@@ -12,9 +12,16 @@
       <img src="/assets/img/lupa.png" alt="Lupa Azul" />
     </div>
   </div>
+  <div class="botoes">
+    <button class="botao">Meu Mural</button>
+    <button class="botao" (click)="listarFavoritos()">Meus Favoritos</button>
+  </div>
   <div class="mural" *ngIf="listaPensamentos.length > 0; else semPensamentos">
     <div *ngFor="let pensamento of listaPensamentos">
-      <app-pensamento-card [pensamento]="pensamento"></app-pensamento-card>
+      <app-pensamento-card
+        [pensamento]="pensamento"
+        [listaFavoritos]="listaFavoritos"
+      ></app-pensamento-card>
     </div>
   </div>
 </section>

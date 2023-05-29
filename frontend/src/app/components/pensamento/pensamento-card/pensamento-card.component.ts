@@ -14,6 +14,7 @@ export class PensamentoCardComponent {
     conteudo: '',
     autoria: '',
     modelo: '',
+    favorito: false,
     created_at: '',
     updated_at: '',
   };
@@ -24,5 +25,12 @@ export class PensamentoCardComponent {
       return 'pensamento-g';
     }
     return 'pensamento-p';
+  }
+
+  mudarIconeFavorito(): string {
+    if (this.pensamento.favorito == false) {
+      return 'inativo';
+    }
+    return 'ativo';
   }
 }

@@ -21,25 +21,24 @@ export class PensamentoUpdateComponent {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.pensamentoService
-      .listarPorId(id!)
-      .subscribe((pensamento) => {
-        this.formulario = this.formBuilder.group({
-          id: [pensamento.id],
-          conteudo: [
-            pensamento.conteudo,
-            Validators.compose([
-              Validators.required,
-              Validators.pattern(/(.|\s)*\S(.|\s)*/),
-            ]),
-          ],
-          autoria: [
-            pensamento.autoria,
-            Validators.compose([Validators.required, Validators.minLength(3)]),
-          ],
-          modelo: [pensamento.modelo],
-        });
+    this.pensamentoService.listarPorId(id!).subscribe((pensamento) => {
+      this.formulario = this.formBuilder.group({
+        id: [pensamento.id],
+        conteudo: [
+          pensamento.conteudo,
+          Validators.compose([
+            Validators.required,
+            Validators.pattern(/(.|\s)*\S(.|\s)*/),
+          ]),
+        ],
+        autoria: [
+          pensamento.autoria,
+          Validators.compose([Validators.required, Validators.minLength(3)]),
+        ],
+        modelo: [pensamento.modelo],
+        favorito: [pensamento.favorito],
       });
+    });
   }
 
   atualizarPensamento() {

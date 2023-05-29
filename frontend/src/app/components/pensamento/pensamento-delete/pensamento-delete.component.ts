@@ -13,6 +13,7 @@ export class PensamentoDeleteComponent {
     autoria: '',
     conteudo: '',
     modelo: '',
+    favorito: false,
     created_at: '',
     updated_at: '',
   };

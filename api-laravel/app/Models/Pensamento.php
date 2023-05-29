@@ -12,5 +12,6 @@ class Pensamento extends Model
         'conteudo',
         'autoria',
         'modelo',
+        'favorito'
     ];
 }

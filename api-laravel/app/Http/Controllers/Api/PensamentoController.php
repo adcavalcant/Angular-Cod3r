@@ -18,7 +18,6 @@ class PensamentoController extends Controller
     {
         $query = $request->query('q');
         $pensamentos = Pensamento::query();
-
         if ($query) {
             $pensamentos->where(function ($queryBuilder) use ($query) {
                 $queryBuilder->where('conteudo', 'like', '%'.$query.'%')

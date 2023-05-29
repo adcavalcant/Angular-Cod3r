@@ -17,6 +17,7 @@ return new class extends Migration {
             $table->string('conteudo');
             $table->string('autoria');
             $table->string('modelo');
+            $table->boolean('favorito');
             $table->timestamps();
         });
     }

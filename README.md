@@ -47,7 +47,7 @@ export const environment = {
 * faça uma cópia do arquivo .env.example com nome de .env e adicione as seguintes configurações
 ```
 DB_USER=cavalcante
-DB_PASS=cjx3WFXg8d4orZKh
+DB_PASS=OYXn3H67CbOZqrMu
 SECRET=abdia8s7d6g3dny3v278hdn6tcb326nexydh2n378
 ```
 * rode o comando: $ npm start

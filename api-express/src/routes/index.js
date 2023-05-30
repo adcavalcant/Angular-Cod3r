@@ -1,6 +1,5 @@
 import express from "express";
 import pensamentos from "./pensamentosRoutes.js";
-import produtos from "./produtosRoutes.js";
 import clientes from "./clientesRoutes.js";
 
 const routes = (app) => {
@@ -10,7 +9,6 @@ const routes = (app) => {
   });
 
   app.use(express.json(), pensamentos);
-  app.use(express.json(), produtos);
   app.use(express.json(), clientes);
 };
 

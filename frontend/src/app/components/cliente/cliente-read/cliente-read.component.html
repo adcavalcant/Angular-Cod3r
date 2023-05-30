@@ -5,8 +5,8 @@
     <img src="/assets/img/lupa.png" alt="Lupa Azul" />
   </div>
 </div>
-<div *ngIf="clientes.length > 0; else semClientes" class="mat-elevation-z4">
-  <table mat-table [dataSource]="clientes">
+<div *ngIf="listaClientes.length > 0; else semClientes" class="mat-elevation-z4">
+  <table mat-table [dataSource]="listaClientes">
     <!-- Id Column -->
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef>Id</th>

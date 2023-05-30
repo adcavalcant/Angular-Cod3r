@@ -8,7 +8,7 @@ import { ClienteService } from '../../../services/cliente.service';
   styleUrls: ['./cliente-read.component.css'],
 })
 export class ClienteReadComponent {
-  clientes: Cliente[] = [];
+  listaClientes: Cliente[] = [];
   displayedColumns = ['id', 'name', 'surname', 'salario', 'action'];
   paginaAtual: number = 1;
   haMaisClientes: boolean = true;
@@ -17,8 +17,8 @@ export class ClienteReadComponent {
   constructor(private clienteService: ClienteService) {}
   ngOnInit(): void {
     this.clienteService.read(this.paginaAtual, this.filtro).subscribe(
-      (resposta: any) => {
-        this.clientes = resposta.data;
+      (listaClientes: any) => {
+        this.listaClientes = listaClientes.data;
       },
       (error: any) => {
         console.log('Erro ao carregar clientes:', error);
@@ -31,11 +31,12 @@ export class ClienteReadComponent {
       (resposta: any) => {
         const listaClientes = resposta.data;
         if (Array.isArray(listaClientes)) {
-          this.clientes.push(...listaClientes);
+          this.listaClientes.push(...listaClientes);
           if (listaClientes.length === 0) {
             this.haMaisClientes = false;
           }
         }
+        this.listaClientes = [...this.listaClientes];
       },
       (error) => {
         console.log('Erro ao carregar mais clientes:', error);
@@ -49,7 +50,7 @@ export class ClienteReadComponent {
     this.clienteService
       .read(this.paginaAtual, this.filtro)
       .subscribe((listaClientes: any) => {
-        this.clientes = listaClientes.data;
+        this.listaClientes = listaClientes.data;
       });
   }
 }

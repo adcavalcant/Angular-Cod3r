@@ -33,8 +33,8 @@ export class ClienteService {
   read(pagina: number, filtro: string): Observable<Cliente[]> {
     const itensPorPagina = 9;
     let params = new HttpParams()
-      .set('_page', pagina)
-      .set('_limit', itensPorPagina);
+      .set('page', pagina)
+      .set('limit', itensPorPagina);
     if (filtro.trim().length > 2) {
       params = params.set('q', filtro);
     }

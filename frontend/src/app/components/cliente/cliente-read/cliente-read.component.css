@@ -30,6 +30,7 @@ table {
 }
 
 .buscar-clientes img {
+  margin-left: 5px;
   padding-right: 15px;
   width: 50px;
 }

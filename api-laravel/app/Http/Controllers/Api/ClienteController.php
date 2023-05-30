@@ -25,10 +25,10 @@ class ClienteController extends Controller
             });
         }
 
-        $page = $request->query('_page', 1);
-        $perPage = $request->query('_limit', 9);
+        $page = $request->query('page', 1);
+        $perPage = $request->query('limit', 9);
 
-        $paginator = $clientes->paginate($perPage, ['*'], '_page', $page);
+        $paginator = $clientes->paginate($perPage, ['*'], 'page', $page);
         return response()->json($paginator);
     }
 

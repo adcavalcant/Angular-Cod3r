@@ -11,9 +11,11 @@ import { PensamentoCrudComponent } from './views/pensamento-crud/pensamento-crud
 import { PensamentoCreateComponent } from './components/pensamento/pensamento-create/pensamento-create.component';
 import { PensamentoUpdateComponent } from './components/pensamento/pensamento-update/pensamento-update.component';
 import { PensamentoDeleteComponent } from './components/pensamento/pensamento-delete/pensamento-delete.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'clientes', component: ClienteCrudComponent },
   { path: 'clientes/create', component: ClienteCreateComponent },
   { path: 'clientes/update/:id', component: ClienteUpdateComponent },

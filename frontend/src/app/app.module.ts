@@ -47,6 +47,7 @@ import { PensamentoCardComponent } from './components/pensamento/pensamento-card
 import { MensagemComponent } from './components/mensagem/mensagem.component';
 import { BotaoCarregarMaisComponent } from './components/pensamento/pensamento-read/botao-carregar-mais/botao-carregar-mais.component';
 import { BotaoCarregarMaisClientesComponent } from './components/cliente/cliente-read/botao-carregar-mais-clientes/botao-carregar-mais-clientes.component';
+import { LoginComponent } from './components/login/login.component';
 
 registerLocaleData(localePt);
 
@@ -72,6 +73,7 @@ registerLocaleData(localePt);
     MensagemComponent,
     BotaoCarregarMaisComponent,
     BotaoCarregarMaisClientesComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

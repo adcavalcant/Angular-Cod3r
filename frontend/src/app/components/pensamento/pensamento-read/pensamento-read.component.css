@@ -71,9 +71,17 @@
 }
 
 .buscar-pensamentos img {
+  margin-left: 15px;
   padding-right: 15px;
   width: 50px;
 }
+
+.buscar-pensamentos:focus-within {
+  /* Estilize a parte da classe .buscar-clientes quando o input for clicado */
+  /* Por exemplo, você pode adicionar uma borda colorida */
+  box-shadow: 2px 2px 2px #3498db;
+}
+
 
 input::placeholder {
   color: #c4c4c4;

@@ -23,14 +23,22 @@ table {
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   height: 44px;
-  width: 200px;
+  width: 230px;
   display: flex;
   align-items: center;
   text-align: center;
+  padding: 15px;
 }
 
 .buscar-clientes img {
   margin-left: 5px;
   padding-right: 15px;
   width: 50px;
+}
+
+.buscar-clientes input {
+  background: #f8f9fe;
+  border: none;
+  border-radius: 10px;
+  padding: 7px;
 }

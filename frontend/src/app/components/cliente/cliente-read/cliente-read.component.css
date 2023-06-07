@@ -33,7 +33,7 @@ table {
 .buscar-clientes:focus-within {
   /* Estilize a parte da classe .buscar-clientes quando o input for clicado */
   /* Por exemplo, você pode adicionar uma borda colorida */
-  box-shadow: 0 0 5px #3498db;
+  box-shadow: 2px 2px 2px #3498db;
 }
 
 .buscar-clientes img {

@@ -30,8 +30,14 @@ table {
   padding: 15px;
 }
 
+.buscar-clientes:focus-within {
+  /* Estilize a parte da classe .buscar-clientes quando o input for clicado */
+  /* Por exemplo, você pode adicionar uma borda colorida */
+  box-shadow: 0 0 5px #3498db;
+}
+
 .buscar-clientes img {
-  margin-left: 5px;
+  margin-left: 10px;
   padding-right: 15px;
   width: 50px;
 }
@@ -40,5 +46,14 @@ table {
   background: #f8f9fe;
   border: none;
   border-radius: 10px;
-  padding: 7px;
+  padding: 5px;
+}
+
+.buscar-clientes input:focus {
+  border: none;
+  outline: 0;
+}
+
+.buscar-clientes input::placeholder {
+  text-align: center;
 }

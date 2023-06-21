@@ -1,14 +1,8 @@
 <section class="container">
   <div class="busca-container">
     <div class="buscar-pensamentos">
-      <input
-        type="serch"
-        class="filtro"
-        placeholder="O que você procura?"
-        autofocus
-        [(ngModel)]="filtro"
-        (keyup)="pesquisarPensamentos()"
-      />
+      <input type="serch" class="filtro" placeholder="O que você procura?" autofocus [(ngModel)]="filtro"
+        (keyup)="pesquisarPensamentos()" />
       <img src="/assets/img/lupa.png" alt="Lupa Azul" />
     </div>
   </div>
@@ -18,20 +12,15 @@
   </div>
   <div class="mural" *ngIf="listaPensamentos.length > 0; else semPensamentos">
     <div *ngFor="let pensamento of listaPensamentos">
-      <app-pensamento-card
-        [pensamento]="pensamento"
-        [listaFavoritos]="listaFavoritos"
-      ></app-pensamento-card>
+      <app-pensamento-card [pensamento]="pensamento" [listaFavoritos]="listaFavoritos"></app-pensamento-card>
     </div>
   </div>
 </section>
-<app-botao-carregar-mais
-  [haMaisPensamentos]="haMaisPensamentos"
-  (click)="carregarMaisPensamentos()"
->
+<app-botao-carregar-mais [haMaisPensamentos]="haMaisPensamentos" (click)="carregarMaisPensamentos()">
 </app-botao-carregar-mais>
 <ng-template #semPensamentos>
   <div class="ff-inter sem-pensamentos">
-    <p>Ainda não há pensamentos cadastrados</p>
+    <p *ngIf="listaPensamentos.length == 0 && !favoritos">Ainda não há pensamentos cadastrados</p>
+    <p *ngIf="listaFavoritos.length == 0 && favoritos">Ainda não há pensamentos favoritos cadastrados</p>
   </div>
 </ng-template>
